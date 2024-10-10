@@ -1,0 +1,27 @@
+.title {
+  display: flex;
+  justify-content: center;
+  width: 322px;
+  height: 48px;
+  margin: 40px auto;
+  border-bottom: 1px solid #00122f25;
+
+  font-size: 22px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.44px;
+}
+
+.contacts_list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 32px;
+  width: 100%;
+  padding: 0 20px;
+  @media screen and (min-width: 768px) {
+    padding: 0 32px;
+  }
+  @media screen and (min-width: 1280px) {
+    padding: 0 16px;
+  }
+}

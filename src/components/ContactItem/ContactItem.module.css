@@ -1,0 +1,54 @@
+.img_wrapper {
+  max-height: 244px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.img {
+  object-fit: cover;
+}
+
+.wrapper {
+  width: 288px;
+
+  flex-shrink: 0;
+}
+
+.info_wrapper {
+  padding: 20px 23px 18px 28px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.name {
+  color: #000;
+
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 12px; /* 100% */
+  letter-spacing: 1.44px;
+  text-transform: uppercase;
+}
+
+.position {
+  color: #555;
+
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 12px; /* 100% */
+  letter-spacing: 0.24px;
+}
+
+.description {
+  color: #000;
+
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px; /* 133.333% */
+  letter-spacing: 0.24px;
+}
