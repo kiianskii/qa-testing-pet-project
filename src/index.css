@@ -104,6 +104,12 @@ html {
   font-size: 14px;
   line-height: 16px; /* 114.286% */
   letter-spacing: 0.28px;
+  transition: all ease 200ms;
+
+  &:hover,
+  &:focus {
+    color: #ff6b09;
+  }
 }
 
 .active::after {
