@@ -7,11 +7,11 @@ const Footer = () => {
     <div className={s.footer_wrapper}>
       <ul className={s.footer_list}>
         <li className={s.footer_item}>
-          <Icon size={18} id="copyright" className={s.copyright} /> 2024
+          <Icon size={18} id="copyright" className={s.copyright} /> &nbsp; 2024
         </li>
         <li className={s.footer_item}>All Rights Reserved</li>
         <li className={s.footer_item}>
-          Developed with{" "}
+          Developed with &nbsp;
           <Icon size={16} id="heart-fill" className={s.footer_heart} />
         </li>
       </ul>
