@@ -1,0 +1,40 @@
+.page {
+  padding: 70px 115px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+
+  @media screen and (min-width: 1280px) {
+    flex-direction: row;
+    padding: 98px 124px;
+    gap: 112px;
+  }
+}
+
+.title_wrapper {
+  width: 420px;
+}
+
+.title {
+  font-size: 34px;
+  font-weight: 800;
+  line-height: normal;
+  letter-spacing: 0.68px;
+  margin-bottom: 20px;
+}
+
+.desc {
+  color: #555;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 36px;
+  letter-spacing: 0.36px;
+}
+
+.text {
+  color: #000;
+  font-weight: 700;
+}

@@ -18,8 +18,8 @@ function App() {
           <Route path="test" element={<TestPage />} />
           <Route path="useful-info" element={<MaterialsPage />} />
           <Route path="contacts" element={<ContactsPage />} />
+          <Route path="/auth" element={<AuthPage />} />
         </Route>
-        <Route path="/auth" element={<AuthPage />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </Suspense>
