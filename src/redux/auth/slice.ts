@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { loginThunk, logoutThunk, refreshThunk } from "./operations";
+import { loginThunk, logoutThunk } from "./operations";
 
 interface User {
   email: string;
@@ -52,19 +52,6 @@ const slice = createSlice({
       })
       .addCase(logoutThunk.fulfilled, () => {
         return initialState;
-      })
-      .addCase(refreshThunk.fulfilled, (state, { payload }) => {
-        state.accessToken = payload.newAccessToken;
-        state.refreshToken = payload.newRefreshToken;
-        state.sid = payload.newSid;
-        state.isLoggedIn = true;
-        state.isRefreshing = false;
-      })
-      .addCase(refreshThunk.pending, (state) => {
-        state.isRefreshing = true;
-      })
-      .addCase(refreshThunk.rejected, (state) => {
-        state.isRefreshing = false;
       });
   },
 });

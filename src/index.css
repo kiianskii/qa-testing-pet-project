@@ -106,8 +106,7 @@ html {
   letter-spacing: 0.28px;
   transition: all ease 200ms;
 
-  &:hover,
-  &:focus {
+  &:hover {
     color: #ff6b09;
   }
 }

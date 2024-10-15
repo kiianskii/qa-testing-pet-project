@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
-import { selectIsLoggedIn } from "../redux/auth/slice";
 import { Navigate } from "react-router-dom";
+import { selectIsLoggedIn } from "../redux/auth/slice";
 
 interface PropsTypes {
   component: React.ComponentType;
