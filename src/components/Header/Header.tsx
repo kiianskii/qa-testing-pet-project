@@ -3,8 +3,13 @@ import { NavLink } from "react-router-dom";
 import s from "./Header.module.css";
 import { Icon } from "../../icons/Icon";
 import Logo from "../../icons/logo.png";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../redux/store";
+import { logoutThunk } from "../../redux/auth/operations";
 
 const Header = () => {
+  const dispatch = useDispatch<AppDispatch>();
+
   return (
     <>
       <div className={s.header_wrapper}>
@@ -24,7 +29,15 @@ const Header = () => {
           </nav>
         </div>
         <div className={s.logout_wrapper}>
-          <Icon size={16} id="sign-out" className={s.logout} />
+          <button
+            type="button"
+            className={s.logout_btn}
+            onClick={() => {
+              dispatch(logoutThunk());
+            }}
+          >
+            <Icon size={16} id="sign-out" className={s.logout} />
+          </button>
         </div>
       </div>
     </>

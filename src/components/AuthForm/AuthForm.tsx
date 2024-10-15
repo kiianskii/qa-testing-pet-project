@@ -1,7 +1,12 @@
 import React from "react";
 import s from "./AuthForm.module.css";
+import { useDispatch } from "react-redux";
+import { loginThunk, registerThunk } from "../../redux/auth/operations";
+import { AppDispatch } from "../../redux/store";
 
 const AuthForm: React.FC = () => {
+  const dispatch = useDispatch<AppDispatch>();
+
   const handleAuth = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -16,18 +21,22 @@ const AuthForm: React.FC = () => {
     const signUpButton = target.namedItem("signUp") as HTMLButtonElement;
 
     if (document.activeElement === signInButton) {
-      console.log(email, password);
+      handleLogin(email, password);
     } else if (document.activeElement === signUpButton) {
-      console.log(email, password);
+      handleRegister(email, password);
     }
 
     (target.namedItem("email") as HTMLInputElement).value = "";
     (target.namedItem("password") as HTMLInputElement).value = "";
   };
 
-  // const handleRegister = async (email,password) => {};
+  const handleRegister = async (email: string, password: string) => {
+    dispatch(registerThunk({ email, password }));
+  };
 
-  // const handleLogin = async (email,password) => {};
+  const handleLogin = async (email: string, password: string) => {
+    dispatch(loginThunk({ email, password }));
+  };
 
   return (
     <div>

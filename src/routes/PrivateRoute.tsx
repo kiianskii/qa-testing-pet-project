@@ -1,9 +1,17 @@
-// import { useSelector } from "react-redux";
-// import { Navigate } from "react-router-dom";
-// import { selectIsLoggedIn } from "../redux/auth/authSlice";
+import { useSelector } from "react-redux";
+import { selectIsLoggedIn } from "../redux/auth/slice";
+import { Navigate } from "react-router-dom";
 
-// export const PrivateRoute = ({ component: Component, redirectTo = "/" }) => {
-//   const isLoggedIn = useSelector(selectIsLoggedIn);
+interface PropsTypes {
+  component: React.ComponentType;
+  redirectTo: string;
+}
 
-//   return isLoggedIn ? Component : <Navigate to={redirectTo} />;
-// };
+export const PrivateRoute: React.FC<PropsTypes> = ({
+  component: Component,
+  redirectTo = "/",
+}) => {
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+
+  return isLoggedIn ? <Component /> : <Navigate to={redirectTo} />;
+};
