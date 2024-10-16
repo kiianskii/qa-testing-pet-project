@@ -2,9 +2,13 @@ import React from "react";
 import s from "./MainPage.module.css";
 import { Icon } from "../../icons/Icon";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../redux/store";
+import { fetchTheoryQuestions } from "../../redux/quiz/operations";
 
 const MainPage = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch<AppDispatch>();
 
   return (
     <section className={s.container}>
@@ -23,6 +27,7 @@ const MainPage = () => {
           className={s.btn}
           type="button"
           onClick={() => {
+            dispatch(fetchTheoryQuestions());
             navigate("/test");
           }}
         >
@@ -33,6 +38,7 @@ const MainPage = () => {
           className={s.btn + " " + s.theory}
           type="button"
           onClick={() => {
+            dispatch(fetchTheoryQuestions());
             navigate("/test");
           }}
         >

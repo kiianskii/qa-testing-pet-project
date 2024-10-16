@@ -55,3 +55,16 @@ export type refreshRes = {
 export type refreshCredentials = {
   sid: string;
 };
+
+export interface Answer {
+  question: string;
+  questionId: number;
+  answers: string[];
+}
+
+export interface QuizState {
+  questions: Answer[];
+  currentQuestionIndex: number;
+  status: "" | "tech" | "theory";
+  error: string | null;
+}

@@ -22,6 +22,8 @@ function App() {
       const accessToken = parsedData.accessToken.replace(/"/g, "");
 
       if (accessToken) {
+        console.log(accessToken);
+
         setToken(accessToken);
       } else {
         console.log("Access Token not found");
