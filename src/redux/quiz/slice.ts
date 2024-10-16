@@ -1,7 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 import { QuizState } from "../../helpers/customTypes";
-import { fetchTechQuestions, fetchTheoryQuestions } from "./operations";
+import {
+  fetchTechQuestions,
+  fetchTechResults,
+  fetchTheoryQuestions,
+  fetchTheoryResults,
+} from "./operations";
 import { logoutThunk } from "../auth/operations";
 
 const initialState: QuizState = {
@@ -9,6 +14,8 @@ const initialState: QuizState = {
   currentQuestionIndex: 0,
   status: "",
   error: null,
+  answers: [],
+  results: null,
 };
 
 const quizSlice = createSlice({
@@ -28,11 +35,26 @@ const quizSlice = createSlice({
     resetQuiz(state) {
       state.currentQuestionIndex = 0;
     },
+    saveAnswer(state, action) {
+      const { questionId, answer } = action.payload;
+
+      const existingAnswerIndex = state.answers.findIndex(
+        (item) => item.questionId === questionId
+      );
+
+      if (existingAnswerIndex !== -1) {
+        state.answers[existingAnswerIndex].answer = answer;
+      } else {
+        state.answers.push({ questionId, answer });
+      }
+    },
   },
   extraReducers: (builder) => {
     builder
-
       .addCase(fetchTechQuestions.fulfilled, (state, action) => {
+        state.answers = [];
+        state.currentQuestionIndex = 0;
+
         state.status = "tech";
         state.questions = action.payload;
       })
@@ -40,11 +62,20 @@ const quizSlice = createSlice({
         state.error = action.error.message || null;
       })
       .addCase(fetchTheoryQuestions.fulfilled, (state, action) => {
+        state.answers = [];
+        state.currentQuestionIndex = 0;
+
         state.status = "theory";
         state.questions = action.payload;
       })
       .addCase(fetchTheoryQuestions.rejected, (state, action) => {
         state.error = action.error.message || null;
+      })
+      .addCase(fetchTechResults.fulfilled, (state, action) => {
+        state.results = action.payload;
+      })
+      .addCase(fetchTheoryResults.fulfilled, (state, action) => {
+        state.results = action.payload;
       })
       .addCase(logoutThunk.fulfilled, () => {
         return initialState;
@@ -52,6 +83,7 @@ const quizSlice = createSlice({
   },
 });
 
-export const { nextQuestion, previousQuestion, resetQuiz } = quizSlice.actions;
+export const { nextQuestion, previousQuestion, resetQuiz, saveAnswer } =
+  quizSlice.actions;
 
 export const quizReducer = quizSlice.reducer;

@@ -38,10 +38,13 @@
 
   transition: all ease 200ms;
 
-  &:hover,
-  &:focus {
+  &:hover {
     background-color: #fff;
     color: #000;
+  }
+
+  &:disabled {
+    background: #474747c8;
   }
 }
 

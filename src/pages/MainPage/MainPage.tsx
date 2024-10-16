@@ -4,7 +4,10 @@ import { Icon } from "../../icons/Icon";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../redux/store";
-import { fetchTheoryQuestions } from "../../redux/quiz/operations";
+import {
+  fetchTechQuestions,
+  fetchTheoryQuestions,
+} from "../../redux/quiz/operations";
 
 const MainPage = () => {
   const navigate = useNavigate();
@@ -27,7 +30,7 @@ const MainPage = () => {
           className={s.btn}
           type="button"
           onClick={() => {
-            dispatch(fetchTheoryQuestions());
+            dispatch(fetchTechQuestions());
             navigate("/test");
           }}
         >

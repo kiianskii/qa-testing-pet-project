@@ -13,3 +13,7 @@ export const selectQuizStatus = (state: { quiz: QuizState }) =>
   state.quiz.status;
 
 export const selectQuizError = (state: { quiz: QuizState }) => state.quiz.error;
+
+export const selectAnswers = (state: { quiz: QuizState }) => state.quiz.answers;
+
+export const selectResults = (state: { quiz: QuizState }) => state.quiz.results;

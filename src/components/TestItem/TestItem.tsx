@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import s from "./TestItem.module.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
+  selectAnswers,
+  selectCurrentQuestion,
   selectCurrentQuestionIndex,
   selectTotalQuestions,
 } from "../../redux/quiz/selectors";
+import { AppDispatch } from "../../redux/store";
+import { saveAnswer } from "../../redux/quiz/slice";
 
 type TestProps = {
   question: string;
@@ -12,13 +16,22 @@ type TestProps = {
 };
 
 const TestItem: React.FC<TestProps> = ({ question, answers }) => {
-  const [selectedAnswer, setSelectedAnswer] = useState("");
-
+  const dispatch = useDispatch<AppDispatch>();
+  const currentQuestion = useSelector(selectCurrentQuestion);
   const currentIndex = useSelector(selectCurrentQuestionIndex);
   const totalQuestions = useSelector(selectTotalQuestions);
+  const allAnswers = useSelector(selectAnswers);
+  const currentAnswer = allAnswers.find(
+    (item) => item.questionId === currentQuestion.questionId
+  )?.answer;
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedAnswer(event.target.value);
+    dispatch(
+      saveAnswer({
+        questionId: currentQuestion.questionId,
+        answer: event.target.value,
+      })
+    );
   };
 
   return (
@@ -35,7 +48,7 @@ const TestItem: React.FC<TestProps> = ({ question, answers }) => {
               id={`option-${index}`}
               name="options"
               value={answer}
-              checked={selectedAnswer === answer}
+              checked={currentAnswer === answer}
               onChange={handleChange}
             />
             <label className={s.label} htmlFor={`option-${index}`}>

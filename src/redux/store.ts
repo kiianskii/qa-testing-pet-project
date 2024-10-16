@@ -21,12 +21,19 @@ const authPersistConfig = {
   storage,
 };
 
+const quizPersistConfig = {
+  key: "quiz",
+  version: 1,
+  storage,
+};
+
 const persistedReducer = persistReducer(authPersistConfig, authReducer);
+const persistedQuizReducer = persistReducer(quizPersistConfig, quizReducer);
 
 export const store = configureStore({
   reducer: {
     auth: persistedReducer,
-    quiz: quizReducer,
+    quiz: persistedQuizReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

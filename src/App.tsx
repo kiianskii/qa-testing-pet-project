@@ -11,6 +11,7 @@ import ContactsPage from "./pages/ContactsPage/ContactsPage";
 import { PrivateRoute } from "./routes/PrivateRoute";
 import { RestrictedRoute } from "./routes/RestrictedRoute";
 import { setToken } from "./redux/auth/operations";
+import ResultsPage from "./pages/ResultsPage/ResultsPage";
 
 function App() {
   useEffect(() => {
@@ -18,12 +19,9 @@ function App() {
 
     if (persistedData) {
       const parsedData = JSON.parse(persistedData);
-
       const accessToken = parsedData.accessToken.replace(/"/g, "");
 
       if (accessToken) {
-        console.log(accessToken);
-
         setToken(accessToken);
       } else {
         console.log("Access Token not found");
@@ -47,6 +45,12 @@ function App() {
             path="useful-info"
             element={
               <PrivateRoute redirectTo="/auth" component={MaterialsPage} />
+            }
+          />
+          <Route
+            path="results"
+            element={
+              <PrivateRoute redirectTo="/auth" component={ResultsPage} />
             }
           />
           <Route path="contacts" element={<ContactsPage />} />

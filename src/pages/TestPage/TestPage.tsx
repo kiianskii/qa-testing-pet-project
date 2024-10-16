@@ -4,6 +4,7 @@ import { Icon } from "../../icons/Icon";
 import TestItem from "../../components/TestItem/TestItem";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  selectAnswers,
   selectCurrentQuestion,
   selectCurrentQuestionIndex,
   selectQuizStatus,
@@ -12,6 +13,10 @@ import {
 import { AppDispatch } from "../../redux/store";
 import { nextQuestion, previousQuestion } from "../../redux/quiz/slice";
 import { useNavigate } from "react-router-dom";
+import {
+  fetchTechResults,
+  fetchTheoryResults,
+} from "../../redux/quiz/operations";
 
 const TestPage = () => {
   const navigate = useNavigate();
@@ -20,6 +25,7 @@ const TestPage = () => {
   const currentIndex = useSelector(selectCurrentQuestionIndex);
   const totalQuestions = useSelector(selectTotalQuestions);
   const status = useSelector(selectQuizStatus);
+  const answers = useSelector(selectAnswers);
 
   const handleNext = () => {
     dispatch(nextQuestion());
@@ -27,6 +33,15 @@ const TestPage = () => {
 
   const handlePrevious = () => {
     dispatch(previousQuestion());
+  };
+
+  const handleFinish = () => {
+    if (status === "tech") {
+      dispatch(fetchTechResults(answers));
+    } else if (status === "theory") {
+      dispatch(fetchTheoryResults(answers));
+    }
+    navigate("/results");
   };
 
   return (
@@ -37,9 +52,8 @@ const TestPage = () => {
         </h2>
         <button
           className={s.finish_btn}
-          onClick={() => {
-            navigate("/");
-          }}
+          onClick={handleFinish}
+          disabled={totalQuestions !== answers.length}
         >
           Finish test
         </button>

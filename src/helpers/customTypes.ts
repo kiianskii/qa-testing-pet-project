@@ -62,9 +62,30 @@ export interface Answer {
   answers: string[];
 }
 
+export interface UserAnswer {
+  questionId: number;
+  answer: string;
+}
+
 export interface QuizState {
   questions: Answer[];
   currentQuestionIndex: number;
   status: "" | "tech" | "theory";
   error: string | null;
+  answers: UserAnswer[];
+  results: null | {
+    result: string;
+    mainMessage: string;
+    secondaryMessage: string;
+  };
+}
+
+export type quizCredentials = UserAnswer[];
+
+export interface resultData {
+  data: {
+    result: string;
+    mainMessage: string;
+    secondaryMessage: string;
+  };
 }
