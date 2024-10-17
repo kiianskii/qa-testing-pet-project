@@ -79,10 +79,16 @@
 
   transition: all ease 200ms;
 
-  &:hover,
-  &:focus {
+  &:hover {
     background-color: #ff6b09;
     color: #fff;
+    .arrow {
+      fill: #fff;
+    }
+  }
+  &:disabled {
+    background: #565656c8;
+    color: white;
     .arrow {
       fill: #fff;
     }

@@ -7,10 +7,16 @@ import { AppDispatch } from "../../redux/store";
 const AuthForm: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
 
+  const handleKeyPress = (event: React.KeyboardEvent<HTMLFormElement>) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+    }
+  };
+
   const handleAuth = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const formData = new FormData(event.currentTarget); // Отримати FormData з форми
+    const formData = new FormData(event.currentTarget);
 
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
@@ -40,7 +46,11 @@ const AuthForm: React.FC = () => {
 
   return (
     <div>
-      <form className={s.form} onSubmit={handleAuth}>
+      <form
+        className={s.form}
+        onSubmit={handleAuth}
+        onKeyPress={handleKeyPress}
+      >
         <p>Register or login to our app using e-mail and password:</p>
         <div className={s.input_wrapper}>
           <input
