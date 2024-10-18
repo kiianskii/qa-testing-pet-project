@@ -1,12 +1,16 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { quizCredentials, resultData } from "../../helpers/customTypes";
+import {
+  AnswersResponse,
+  quizCredentials,
+  resultData,
+} from "../../helpers/customTypes";
 import axios from "axios";
 
 export const fetchTechQuestions = createAsyncThunk(
   "quiz/fetchTechQuestions",
   async (_, thunkApi) => {
     try {
-      const response = await axios.get("/qa-test/tech");
+      const response = (await axios.get("/qa-test/tech")) as AnswersResponse;
       return response.data;
     } catch (error) {
       if (axios.isAxiosError(error) && error.message) {
@@ -21,7 +25,7 @@ export const fetchTheoryQuestions = createAsyncThunk(
   "quiz/fetchTheoryQuestions",
   async (_, thunkApi) => {
     try {
-      const response = await axios.get("/qa-test/theory");
+      const response = (await axios.get("/qa-test/theory")) as AnswersResponse;
       return response.data;
     } catch (error) {
       if (axios.isAxiosError(error) && error.message) {

@@ -1,15 +1,5 @@
 import { RootState } from "../redux/store";
 
-// export interface User {
-//   data: {
-//     token: string;
-//     user: {
-//       username: string;
-//       email: string;
-//     };
-//   };
-// }
-
 export interface User {
   data: {
     accessToken: string;
@@ -60,6 +50,10 @@ export interface Answer {
   question: string;
   questionId: number;
   answers: string[];
+}
+
+export interface AnswersResponse {
+  data: Answer[];
 }
 
 export interface UserAnswer {

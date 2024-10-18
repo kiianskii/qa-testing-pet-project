@@ -14,6 +14,7 @@ import {
 import storage from "redux-persist/lib/storage";
 import { authReducer } from "./auth/slice";
 import { quizReducer } from "./quiz/slice";
+import { loaderReducer } from "./loader/loaderSlice";
 
 const authPersistConfig = {
   key: "auth",
@@ -34,6 +35,7 @@ export const store = configureStore({
   reducer: {
     auth: persistedReducer,
     quiz: persistedQuizReducer,
+    loader: loaderReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
