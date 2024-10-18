@@ -12,6 +12,7 @@ import { PrivateRoute } from "./routes/PrivateRoute";
 import { RestrictedRoute } from "./routes/RestrictedRoute";
 import { setToken } from "./redux/auth/operations";
 import ResultsPage from "./pages/ResultsPage/ResultsPage";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   useEffect(() => {
@@ -61,6 +62,7 @@ function App() {
         </Route>
         <Route path="*" element={<ErrorPage />} />
       </Routes>
+      <Toaster />
     </Suspense>
   );
 }
