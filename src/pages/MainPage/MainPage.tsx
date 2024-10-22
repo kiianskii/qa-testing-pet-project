@@ -21,8 +21,8 @@ const MainPage = () => {
       </h2>
 
       <div className={s.wrapper}>
-        <h3>Linus Torvalds</h3>
-        <p>Linux kernel creator, hacker, 1969</p>
+        <h3 className={s.author}>Linus Torvalds</h3>
+        <p className={s.author_desc}>Linux kernel creator, hacker, 1969</p>
       </div>
 
       <div className={s.btn_wrapper}>
@@ -34,7 +34,7 @@ const MainPage = () => {
             navigate("/test");
           }}
         >
-          <span>QA technical training</span>
+          <span className={s.btn_text}>QA technical training</span>
           <Icon size={24} id="arrow" className={s.arrow} />
         </button>
         <button
@@ -45,7 +45,7 @@ const MainPage = () => {
             navigate("/test");
           }}
         >
-          <span>
+          <span className={s.btn_text}>
             Testing <br /> theory
           </span>
           <Icon size={24} id="arrow" className={s.arrow} />
