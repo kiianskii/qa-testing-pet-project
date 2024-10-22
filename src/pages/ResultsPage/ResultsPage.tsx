@@ -34,17 +34,19 @@ const ResultsPage = () => {
   return (
     <section className={s.section}>
       <div className={s.title_wrapper}>
-        <h2>Results</h2>
-        <p>[ Testing {status === "theory" ? "theory_" : "tech_"} ]</p>
+        <h2 className={s.title}>Results</h2>
+        <p className={s.title_desc}>
+          [ Testing {status === "theory" ? "theory_" : "tech_"} ]
+        </p>
       </div>
       <div>
         <CustomPieChart data={data} />
       </div>
       <div className={s.answ_wrapper}>
-        <p>
+        <p className={s.correct_answ}>
           Correct answers - <span>{Math.round(correctNum)}</span>
         </p>
-        <p>
+        <p className={s.correct_answ}>
           Total questions - <span>{totalQuestions}</span>
         </p>
       </div>

@@ -9,14 +9,14 @@ const COLORS = ["#FF6B01", "#9c9c9c"];
 
 const CustomPieChart: React.FC<Props> = ({ data }) => {
   return (
-    <PieChart width={500} height={300}>
+    <PieChart width={300} height={300}>
       <Pie
         data={data}
-        cx={243}
-        cy={143}
+        cx={150}
+        cy={150}
         labelLine={false}
         label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
-        outerRadius={143}
+        outerRadius={100}
         fill="#8884d8"
         dataKey="value"
       >
