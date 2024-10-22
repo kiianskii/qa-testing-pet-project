@@ -29,7 +29,6 @@
 .logout_wrapper {
   position: relative;
   margin-left: 20px;
-  /* border-left: 1px solid #000; */
 }
 
 .logout_wrapper::before {

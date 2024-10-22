@@ -24,8 +24,6 @@ function App() {
 
       if (accessToken) {
         setToken(accessToken);
-      } else {
-        console.log("Access Token not found");
       }
     }
   }, []);

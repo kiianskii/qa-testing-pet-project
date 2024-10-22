@@ -83,7 +83,7 @@ const AuthForm: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className={s.form_wrapper}>
       <form className={s.form} onSubmit={handleAuth} onKeyDown={handleKeyPress}>
         <p>Register or login to our app using e-mail and password:</p>
         <div className={s.input_wrapper}>

@@ -1,10 +1,14 @@
 .page {
-  padding: 70px 115px;
+  padding: 42px 20px 34px;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
   gap: 24px;
+
+  @media screen and (min-width: 768px) {
+    padding: 82px 115px;
+  }
 
   @media screen and (min-width: 1280px) {
     flex-direction: row;
@@ -14,24 +18,51 @@
 }
 
 .title_wrapper {
-  width: 420px;
+  width: 280px;
+
+  @media screen and (min-width: 768px) {
+    width: 535px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 420px;
+  }
 }
 
 .title {
-  font-size: 34px;
+  font-size: 20px;
   font-weight: 800;
   line-height: normal;
   letter-spacing: 0.68px;
   margin-bottom: 20px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 30px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 34px;
+  }
 }
 
 .desc {
   color: #555;
-  font-size: 18px;
+  font-size: 12px;
   font-style: normal;
   font-weight: 400;
-  line-height: 36px;
-  letter-spacing: 0.36px;
+  line-height: 20px;
+  letter-spacing: 0.24px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 36px;
+    letter-spacing: 0.32px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 18px;
+    letter-spacing: 0.36px;
+  }
 }
 
 .text {
