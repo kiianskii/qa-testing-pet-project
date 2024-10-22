@@ -17,10 +17,12 @@ import {
   fetchTechResults,
   fetchTheoryResults,
 } from "../../redux/quiz/operations";
+import { useMediaQuery } from "react-responsive";
 
 const TestPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
+  const isMobile = useMediaQuery({ query: "(max-width: 767px)" });
   const question = useSelector(selectCurrentQuestion);
   const currentIndex = useSelector(selectCurrentQuestionIndex);
   const totalQuestions = useSelector(selectTotalQuestions);
@@ -47,7 +49,7 @@ const TestPage = () => {
   return (
     <section className={s.test_page}>
       <div className={s.title_wrapper}>
-        <h2>
+        <h2 className={s.title}>
           [ Testing <br /> {status === "theory" ? "theory_" : "tech_"} ]
         </h2>
         <button
@@ -71,7 +73,7 @@ const TestPage = () => {
           disabled={currentIndex === 0}
         >
           <Icon size={24} id="arrow" className={s.arrow + " " + s.arrow_left} />
-          Previous question
+          {!isMobile && "Previous question"}
         </button>
         <button
           type="button"
@@ -79,7 +81,7 @@ const TestPage = () => {
           onClick={handleNext}
           disabled={currentIndex >= totalQuestions - 1}
         >
-          Next question
+          {!isMobile && "Next question"}
           <Icon size={24} id="arrow" className={s.arrow} />
         </button>
       </div>

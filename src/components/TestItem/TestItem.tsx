@@ -36,10 +36,10 @@ const TestItem: React.FC<TestProps> = ({ question, answers }) => {
 
   return (
     <div className={s.wrapper}>
-      <p>
+      <p className={s.question_index}>
         Question {currentIndex + 1}/{totalQuestions}
       </p>
-      <h3>{question}</h3>
+      <h3 className={s.question_title}>{question}</h3>
       <div className={s.answers_wrapper}>
         {answers.map((answer, index) => (
           <div key={index}>
