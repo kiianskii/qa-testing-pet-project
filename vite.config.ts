@@ -15,7 +15,7 @@ export default defineConfig({
   plugins: [
     react(),
     createSvgIconsPlugin({
-      iconDirs: [path.resolve(process.cwd(), "src/icons/icons")],
+      iconDirs: [path.resolve(process.cwd(), "src/icons")],
       symbolId: "icon-[name]",
     }),
   ],
