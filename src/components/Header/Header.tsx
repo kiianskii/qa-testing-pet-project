@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import s from "./Header.module.css";
-import Icon from "../../icons/Icon";
+import { CloseIcon } from "../../icons/Icon";
 import Logo from "../../icons/logo.png";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch } from "../../redux/store";
@@ -58,7 +58,7 @@ const Header: React.FC<HeaderProps> = ({ isOpen, closeModal, openModal }) => {
                       dispatch(logoutThunk());
                     }}
                   >
-                    <Icon size={16} id="sign-out" className={s.logout} />
+                    <CloseIcon />
                   </button>
                 </div>
               )}

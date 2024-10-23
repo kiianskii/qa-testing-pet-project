@@ -1,5 +1,5 @@
 import s from "./MainPage.module.css";
-import Icon from "../../icons/Icon";
+import { Icon } from "../../icons/Icon";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../redux/store";
