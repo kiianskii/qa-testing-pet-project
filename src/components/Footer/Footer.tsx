@@ -1,4 +1,3 @@
-import React from "react";
 import s from "./Footer.module.css";
 import { Icon } from "../../icons/Icon";
 

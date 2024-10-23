@@ -1,4 +1,3 @@
-import React from "react";
 import s from "./ContactsPage.module.css";
 import ContactItem from "../../components/ContactItem/ContactItem";
 import memberPhoto from "../../img/member.png";

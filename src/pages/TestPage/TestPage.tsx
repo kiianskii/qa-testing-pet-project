@@ -1,4 +1,3 @@
-import React from "react";
 import s from "./TestPage.module.css";
 import { Icon } from "../../icons/Icon";
 import TestItem from "../../components/TestItem/TestItem";

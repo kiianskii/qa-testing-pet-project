@@ -1,4 +1,3 @@
-import React from "react";
 import s from "./MaterialsPage.module.css";
 
 const MaterialsPage = () => {

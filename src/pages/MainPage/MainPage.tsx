@@ -1,4 +1,3 @@
-import React from "react";
 import s from "./MainPage.module.css";
 import { Icon } from "../../icons/Icon";
 import { useNavigate } from "react-router-dom";
