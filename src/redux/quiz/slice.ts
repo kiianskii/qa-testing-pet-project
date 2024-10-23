@@ -54,7 +54,7 @@ const quizSlice = createSlice({
       .addCase(fetchTechQuestions.fulfilled, (state, action) => {
         state.answers = [];
         state.currentQuestionIndex = 0;
-
+        state.results = null;
         state.status = "tech";
         state.questions = action.payload;
       })
@@ -64,7 +64,7 @@ const quizSlice = createSlice({
       .addCase(fetchTheoryQuestions.fulfilled, (state, action) => {
         state.answers = [];
         state.currentQuestionIndex = 0;
-
+        state.results = null;
         state.status = "theory";
         state.questions = action.payload;
       })

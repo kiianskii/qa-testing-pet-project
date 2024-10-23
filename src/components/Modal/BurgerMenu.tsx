@@ -38,25 +38,25 @@ const BurgerMenu: React.FC<ModalProps> = ({ closeModal }) => {
         {isLoggedIn && (
           <>
             <div className={s.link_wrapper}>
-              <NavLink className="link" to="/">
+              <NavLink className="link" to="/" onClick={closeModal}>
                 Home
               </NavLink>
             </div>
             <div className={s.link_wrapper}>
-              <NavLink className="link" to="/useful-info">
+              <NavLink className="link" to="/useful-info" onClick={closeModal}>
                 Materials
               </NavLink>
             </div>
           </>
         )}
         <div className={s.link_wrapper}>
-          <NavLink className="link" to="/contacts">
+          <NavLink className="link" to="/contacts" onClick={closeModal}>
             Contacts
           </NavLink>
         </div>
         {!isLoggedIn && (
           <div className={s.link_wrapper}>
-            <NavLink className="link" to="/auth">
+            <NavLink className="link" to="/auth" onClick={closeModal}>
               Sign in
             </NavLink>
           </div>
@@ -68,6 +68,7 @@ const BurgerMenu: React.FC<ModalProps> = ({ closeModal }) => {
               className={s.logout_btn}
               onClick={() => {
                 dispatch(logoutThunk());
+                closeModal();
               }}
             >
               <Icon size={16} id="sign-out" className={s.logout} />
