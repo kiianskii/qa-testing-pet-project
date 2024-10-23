@@ -4,7 +4,7 @@ import s from "./BurgerMenu.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { selectIsLoggedIn } from "../../redux/auth/slice";
 import { NavLink } from "react-router-dom";
-import { Icon } from "../../icons/Icon";
+import Icon from "../../icons/Icon";
 import { logoutThunk } from "../../redux/auth/operations";
 import { AppDispatch } from "../../redux/store";
 

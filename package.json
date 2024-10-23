@@ -25,6 +25,7 @@
     "recharts": "^2.13.0",
     "redux": "^5.0.1",
     "redux-persist": "^6.0.0",
+    "vite-plugin-svg-icons": "^2.0.1",
     "yup": "^1.4.0"
   },
   "devDependencies": {

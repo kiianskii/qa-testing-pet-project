@@ -1,5 +1,5 @@
 import s from "./TestPage.module.css";
-import { Icon } from "../../icons/Icon";
+import Icon from "../../icons/Icon";
 import TestItem from "../../components/TestItem/TestItem";
 import { useDispatch, useSelector } from "react-redux";
 import {

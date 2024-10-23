@@ -1,5 +1,5 @@
 import s from "./Footer.module.css";
-import { Icon } from "../../icons/Icon";
+import Icon from "../../icons/Icon";
 
 const Footer = () => {
   return (

@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import s from "./Header.module.css";
-import { Icon } from "../../icons/Icon";
+import Icon from "../../icons/Icon";
 import Logo from "../../icons/logo.png";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch } from "../../redux/store";
