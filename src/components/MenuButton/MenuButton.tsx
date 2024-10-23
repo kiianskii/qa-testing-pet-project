@@ -1,6 +1,7 @@
 import React from "react";
-import { Icon } from "../../icons/Icon";
+
 import s from "./MenuButton.module.css";
+import { CloseIcon, MenuIcon } from "../../icons/Icon";
 
 interface MenuProps {
   isOpen: boolean;
@@ -13,11 +14,11 @@ const MenuButton: React.FC<MenuProps> = ({ openModal, isOpen, closeModal }) => {
     <div>
       {!isOpen ? (
         <button type="button" className={s.menu_btn} onClick={openModal}>
-          <Icon id="menu" size={20} className="menu_icon" />
+          <MenuIcon />
         </button>
       ) : (
         <button onClick={closeModal} className={s.menu_btn}>
-          <Icon size={26} id={"close"} className={s.icon_close} />
+          <CloseIcon />
         </button>
       )}
     </div>

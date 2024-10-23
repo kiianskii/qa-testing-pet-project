@@ -38,12 +38,3 @@
   border-left: 1px solid rgba(255, 255, 255, 0.4);
   border-right: 1px solid rgba(255, 255, 255, 0.4);
 }
-
-.copyright {
-  fill: white;
-  opacity: 0.4;
-}
-
-.footer_heart {
-  fill: #ff6b09;
-}

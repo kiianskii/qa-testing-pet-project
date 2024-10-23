@@ -1,25 +1,57 @@
-import Icons from "./icons.svg";
-
-type PropsType = {
-  id: string;
-  size: number;
-  className: string;
-};
-
-export const Icon: React.FC<PropsType> = ({ id, size, className }) => {
-  return (
-    <svg width={size} height={size} className={className}>
-      <use href={Icons + "#icon-" + id}></use>
-    </svg>
-  );
-};
-
 import React from "react";
+
+export const ArrowIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 30 30"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <g clipPath="url(#clip0_2_71)">
+      <path
+        d="M29.817 14.5581L20.442 5.18312C20.1978 4.93896 19.8023 4.93896 19.5582 5.18312C19.314 5.42728 19.314 5.82279 19.5582 6.06689L27.8663 14.375H0.625081C0.279612 14.375 6.10352e-05 14.6546 6.10352e-05 15C6.10352e-05 15.3455 0.279612 15.6251 0.625081 15.6251H27.8663L19.5582 23.9331C19.314 24.1773 19.314 24.5728 19.5582 24.8169C19.6802 24.9389 19.8402 25 20.0001 25C20.16 25 20.3199 24.9389 20.442 24.8169L29.817 15.4419C30.0611 15.1978 30.0611 14.8023 29.817 14.5581Z"
+        fill="black"
+      />
+    </g>
+    <defs>
+      <clipPath id="clip0_2_71">
+        <rect width="30" height="30" fill="white" />
+      </clipPath>
+    </defs>
+  </svg>
+);
+
+export const ArrowLeftIcon: React.FC<React.SVGProps<SVGSVGElement>> = (
+  props
+) => (
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 30 30"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <g clipPath="url(#clip0_2_71)">
+      <path
+        d="M0.182 14.5581L9.557 5.18312C9.8012 4.93896 10.1967 4.93896 10.4409 5.18312C10.6851 5.42728 10.6851 5.82279 10.4409 6.06689L2.13288 14.375H29.375C29.7204 14.375 30 14.6546 30 15C30 15.3455 29.7204 15.6251 29.375 15.6251H2.13288L10.4409 23.9331C10.6851 24.1773 10.6851 24.5728 10.4409 24.8169C10.3199 24.9389 10.1599 25 10.0001 25C9.84016 25 9.6802 24.9389 9.55814 24.8169L0.182 15.4419C-0.0611 15.1978 -0.0611 14.8023 0.182 14.5581Z"
+        fill="black"
+      />
+    </g>
+    <defs>
+      <clipPath id="clip0_2_71">
+        <rect width="30" height="30" fill="white" />
+      </clipPath>
+    </defs>
+  </svg>
+);
 
 export const CloseIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   <svg
-    width="30"
-    height="30"
+    width="26"
+    height="26"
     viewBox="0 0 30 30"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -39,15 +71,92 @@ export const CloseIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   </svg>
 );
 
-export const AnotherIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+export const CopyrightIcon: React.FC<React.SVGProps<SVGSVGElement>> = (
+  props
+) => (
   <svg
-    width="30"
-    height="30"
+    width="18"
+    height="18"
+    viewBox="0 0 18 18"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <g id="copyright-24px 1">
+      <path
+        id="Vector"
+        d="M7.56 8.145C7.5975 7.8975 7.68 7.68 7.785 7.4925C7.89 7.305 8.04 7.1475 8.2275 7.0275C8.4075 6.915 8.6325 6.8625 8.91 6.855C9.0825 6.8625 9.24 6.8925 9.3825 6.9525C9.5325 7.02 9.6675 7.11 9.7725 7.2225C9.8775 7.335 9.96 7.47 10.0275 7.62C10.095 7.77 10.125 7.935 10.1325 8.1H11.475C11.46 7.7475 11.3925 7.425 11.265 7.1325C11.1375 6.84 10.965 6.585 10.74 6.375C10.515 6.165 10.245 6 9.93 5.88C9.615 5.76 9.27 5.7075 8.8875 5.7075C8.4 5.7075 7.9725 5.79 7.6125 5.9625C7.2525 6.135 6.9525 6.36 6.7125 6.6525C6.4725 6.945 6.2925 7.2825 6.18 7.6725C6.0675 8.0625 6 8.4675 6 8.9025V9.105C6 9.54 6.06 9.945 6.1725 10.335C6.285 10.725 6.465 11.0625 6.705 11.3475C6.945 11.6325 7.245 11.865 7.605 12.03C7.965 12.195 8.3925 12.285 8.88 12.285C9.2325 12.285 9.5625 12.225 9.87 12.1125C10.1775 12 10.4475 11.8425 10.68 11.64C10.9125 11.4375 11.1 11.205 11.235 10.935C11.37 10.665 11.4525 10.38 11.46 10.0725H10.1175C10.11 10.23 10.0725 10.3725 10.005 10.5075C9.9375 10.6425 9.8475 10.755 9.735 10.8525C9.6225 10.95 9.495 11.025 9.345 11.0775C9.2025 11.13 9.0525 11.145 8.895 11.1525C8.625 11.145 8.4 11.0925 8.2275 10.98C8.04 10.86 7.89 10.7025 7.785 10.515C7.68 10.3275 7.5975 10.1025 7.56 9.855C7.5225 9.6075 7.5 9.3525 7.5 9.105V8.9025C7.5 8.64 7.5225 8.3925 7.56 8.145ZM9 1.5C4.86 1.5 1.5 4.86 1.5 9C1.5 13.14 4.86 16.5 9 16.5C13.14 16.5 16.5 13.14 16.5 9C16.5 4.86 13.14 1.5 9 1.5ZM9 15C5.6925 15 3 12.3075 3 9C3 5.6925 5.6925 3 9 3C12.3075 3 15 5.6925 15 9C15 12.3075 12.3075 15 9 15Z"
+        fill="white"
+        fillOpacity="0.4"
+      />
+    </g>
+  </svg>
+);
+
+export const HeartIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <svg
+    width="16"
+    height="16"
+    viewBox="0 0 30 28"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path
+      d="M15.0001 27.8L12.9001 25.7C5.10006 18.8 6.10352e-05 14.15 6.10352e-05 8.44995C6.10352e-05 3.79995 3.60006 0.199951 8.25006 0.199951C10.8001 0.199951 13.3501 1.39995 15.0001 3.34995C16.6501 1.39995 19.2001 0.199951 21.7501 0.199951C26.4001 0.199951 30.0001 3.79995 30.0001 8.44995C30.0001 14.15 24.9001 18.8 17.1001 25.7L15.0001 27.8Z"
+      fill="#ff6b09"
+    />
+  </svg>
+);
+
+export const MenuIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <svg
+    width="20"
+    height="20"
     viewBox="0 0 30 30"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    {/* Додайте ваш SVG код для іншої іконки */}
+    <g clipPath="url(#clip0_2_44)">
+      <path
+        d="M3.75006 22.5H26.2501V20H3.75006V22.5ZM3.75006 16.25H26.2501V13.75H3.75006V16.25ZM3.75006 7.5V10H26.2501V7.5H3.75006Z"
+        fill="black"
+      />
+    </g>
+    <defs>
+      <clipPath id="clip0_2_44">
+        <rect width="30" height="30" fill="white" />
+      </clipPath>
+    </defs>
+  </svg>
+);
+
+export const CheckmarkIcon: React.FC<React.SVGProps<SVGSVGElement>> = (
+  props
+) => (
+  <svg
+    width="16"
+    height="16"
+    viewBox="0 0 30 30"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <g clipPath="url(#clip0_2_49)">
+      <path
+        d="M23.7122 8.71216L22.3866 10.0378L26.4112 14.0625H13.1251V15.9375H26.4112L22.3866 19.9622L23.7122 21.2878L30.0001 15L23.7122 8.71216Z"
+        fill="black"
+      />
+      <path
+        d="M20.6251 28.125H1.87508V1.87502H20.6251V3.75004H22.5001V0.93751C22.5001 0.419302 22.0808 0 21.5626 0H0.937571C0.419363 0 6.10352e-05 0.419302 6.10352e-05 0.93751V29.0625C6.10352e-05 29.5807 0.419363 30 0.937571 30H21.5626C22.0808 30 22.5001 29.5807 22.5001 29.0625V26.25H20.6251V28.125Z"
+        fill="black"
+      />
+    </g>
+    <defs>
+      <clipPath id="clip0_2_49">
+        <rect width="30" height="30" fill="white" />
+      </clipPath>
+    </defs>
   </svg>
 );

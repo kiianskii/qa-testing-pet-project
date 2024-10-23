@@ -1,5 +1,5 @@
 import s from "./TestPage.module.css";
-import { Icon } from "../../icons/Icon";
+
 import TestItem from "../../components/TestItem/TestItem";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -17,6 +17,7 @@ import {
   fetchTheoryResults,
 } from "../../redux/quiz/operations";
 import { useMediaQuery } from "react-responsive";
+import { ArrowIcon, ArrowLeftIcon } from "../../icons/Icon";
 
 const TestPage = () => {
   const navigate = useNavigate();
@@ -71,7 +72,7 @@ const TestPage = () => {
           onClick={handlePrevious}
           disabled={currentIndex === 0}
         >
-          <Icon size={24} id="arrow" className={s.arrow + " " + s.arrow_left} />
+          <ArrowLeftIcon />
           {!isMobile && "Previous question"}
         </button>
         <button
@@ -81,7 +82,7 @@ const TestPage = () => {
           disabled={currentIndex >= totalQuestions - 1}
         >
           {!isMobile && "Next question"}
-          <Icon size={24} id="arrow" className={s.arrow} />
+          <ArrowIcon />
         </button>
       </div>
     </section>

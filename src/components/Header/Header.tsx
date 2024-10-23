@@ -1,6 +1,5 @@
 import { NavLink } from "react-router-dom";
 import s from "./Header.module.css";
-import { CloseIcon } from "../../icons/Icon";
 import Logo from "../../icons/logo.png";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch } from "../../redux/store";
@@ -8,6 +7,8 @@ import { logoutThunk } from "../../redux/auth/operations";
 import { selectIsLoggedIn } from "../../redux/auth/slice";
 import { useMediaQuery } from "react-responsive";
 import MenuButton from "../MenuButton/MenuButton";
+import { CheckmarkIcon } from "../../icons/Icon";
+
 interface HeaderProps {
   isOpen: boolean;
   closeModal: () => void;
@@ -58,7 +59,7 @@ const Header: React.FC<HeaderProps> = ({ isOpen, closeModal, openModal }) => {
                       dispatch(logoutThunk());
                     }}
                   >
-                    <CloseIcon />
+                    <CheckmarkIcon />
                   </button>
                 </div>
               )}

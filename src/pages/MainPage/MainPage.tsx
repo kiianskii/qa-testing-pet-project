@@ -1,5 +1,5 @@
 import s from "./MainPage.module.css";
-import { Icon } from "../../icons/Icon";
+import { ArrowIcon } from "../../icons/Icon";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../redux/store";
@@ -33,8 +33,11 @@ const MainPage = () => {
             navigate("/test");
           }}
         >
-          <span className={s.btn_text}>QA technical training</span>
-          <Icon size={24} id="arrow" className={s.arrow} />
+          <span className={s.btn_text}>
+            QA technical
+            <br /> training
+          </span>
+          <ArrowIcon />
         </button>
         <button
           className={s.btn + " " + s.theory}
@@ -47,7 +50,7 @@ const MainPage = () => {
           <span className={s.btn_text}>
             Testing <br /> theory
           </span>
-          <Icon size={24} id="arrow" className={s.arrow} />
+          <ArrowIcon />
         </button>
       </div>
     </section>

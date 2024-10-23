@@ -4,9 +4,10 @@ import s from "./BurgerMenu.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { selectIsLoggedIn } from "../../redux/auth/slice";
 import { NavLink } from "react-router-dom";
-import { Icon } from "../../icons/Icon";
+
 import { logoutThunk } from "../../redux/auth/operations";
 import { AppDispatch } from "../../redux/store";
+import { CheckmarkIcon } from "react-hot-toast";
 
 interface ModalProps {
   closeModal: () => void;
@@ -71,7 +72,7 @@ const BurgerMenu: React.FC<ModalProps> = ({ closeModal }) => {
                 closeModal();
               }}
             >
-              <Icon size={16} id="sign-out" className={s.logout} />
+              <CheckmarkIcon />
             </button>
           </div>
         )}
