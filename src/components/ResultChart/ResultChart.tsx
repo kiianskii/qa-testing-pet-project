@@ -12,10 +12,10 @@ const CustomPieChart: React.FC<Props> = ({ data }) => {
   const isMobile = useMediaQuery({ query: "(max-width: 767px)" });
 
   return (
-    <PieChart width={isMobile ? 300 : 400} height={isMobile ? 200 : 300}>
+    <PieChart width={isMobile ? 300 : 500} height={isMobile ? 200 : 300}>
       <Pie
         data={data}
-        cx={isMobile ? 150 : 200}
+        cx={isMobile ? 150 : 250}
         cy={isMobile ? 100 : 150}
         labelLine={false}
         label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}

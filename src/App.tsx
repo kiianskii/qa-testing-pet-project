@@ -23,7 +23,9 @@ function App() {
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
-    dispatch(refreshThunk({ sid, refreshToken }));
+    if (sid) {
+      dispatch(refreshThunk({ sid, refreshToken }));
+    }
   }, []);
 
   useEffect(() => {
