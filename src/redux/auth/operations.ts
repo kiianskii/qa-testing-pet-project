@@ -3,6 +3,8 @@ import axios from "axios";
 import {
   Data,
   logCredentials,
+  refreshCredentials,
+  refreshRes,
   regCredentials,
   User,
 } from "../../helpers/customTypes";
@@ -53,6 +55,30 @@ export const logoutThunk = createAsyncThunk(
     try {
       await axios.post("auth/logout");
       clearToken();
+    } catch (error) {
+      if (axios.isAxiosError(error) && error.message) {
+        return thunkApi.rejectWithValue(error.message);
+      }
+      return thunkApi.rejectWithValue("Unknown error occurred");
+    }
+  }
+);
+
+export const refreshThunk = createAsyncThunk(
+  "auth/refresh",
+  async (credentials: refreshCredentials, thunkApi) => {
+    try {
+      const { data } = (await axios.post(
+        "auth/refresh",
+        { sid: credentials.sid },
+        {
+          headers: {
+            Authorization: `Bearer ${credentials.refreshToken}`,
+          },
+        }
+      )) as refreshRes;
+      setToken(data.newAccessToken);
+      return data;
     } catch (error) {
       if (axios.isAxiosError(error) && error.message) {
         return thunkApi.rejectWithValue(error.message);

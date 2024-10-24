@@ -10,11 +10,22 @@ import MaterialsPage from "./pages/MaterialsPage/MaterialsPage";
 import ContactsPage from "./pages/ContactsPage/ContactsPage";
 import { PrivateRoute } from "./routes/PrivateRoute";
 import { RestrictedRoute } from "./routes/RestrictedRoute";
-import { setToken } from "./redux/auth/operations";
+import { refreshThunk, setToken } from "./redux/auth/operations";
 import ResultsPage from "./pages/ResultsPage/ResultsPage";
 import { Toaster } from "react-hot-toast";
+import { AppDispatch } from "./redux/store";
+import { selectRefreshToken, selectSid } from "./redux/auth/slice";
+import { useDispatch, useSelector } from "react-redux";
 
 function App() {
+  const sid = useSelector(selectSid);
+  const refreshToken = useSelector(selectRefreshToken);
+  const dispatch = useDispatch<AppDispatch>();
+
+  useEffect(() => {
+    dispatch(refreshThunk({ sid, refreshToken }));
+  }, []);
+
   useEffect(() => {
     const persistedData = localStorage.getItem("persist:auth");
 

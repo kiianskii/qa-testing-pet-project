@@ -44,6 +44,7 @@ export type refreshRes = {
 
 export type refreshCredentials = {
   sid: string;
+  refreshToken: string;
 };
 
 export interface Answer {

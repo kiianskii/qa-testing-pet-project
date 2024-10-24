@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { loginThunk, logoutThunk } from "./operations";
+import { loginThunk, logoutThunk, refreshThunk } from "./operations";
 
 interface User {
   email: string;
@@ -33,8 +33,8 @@ const slice = createSlice({
   reducers: {},
   selectors: {
     selectAccessToken: (state: AuthState) => state.accessToken,
-    selectRefreshToken: (state: AuthState) => state.accessToken,
-    selectSid: (state: AuthState) => state.accessToken,
+    selectRefreshToken: (state: AuthState) => state.refreshToken,
+    selectSid: (state: AuthState) => state.sid,
     selectUser: (state: AuthState) => state.userData,
     selectIsLoggedIn: (state: AuthState) => state.isLoggedIn,
     selectIsRefreshing: (state: AuthState) => state.isRefreshing,
@@ -47,6 +47,14 @@ const slice = createSlice({
           state.accessToken = payload.accessToken;
           state.refreshToken = payload.refreshToken;
           state.sid = payload.sid;
+          state.isLoggedIn = true;
+        }
+      })
+      .addCase(refreshThunk.fulfilled, (state, { payload }) => {
+        if (payload) {
+          state.accessToken = payload.newAccessToken;
+          state.refreshToken = payload.newRefreshToken;
+          state.sid = payload.newSid;
           state.isLoggedIn = true;
         }
       })
