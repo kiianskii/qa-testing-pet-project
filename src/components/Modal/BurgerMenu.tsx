@@ -1,13 +1,14 @@
 import { useCallback, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { CheckmarkIcon } from "react-hot-toast";
 
 import s from "./BurgerMenu.module.css";
-import { useDispatch, useSelector } from "react-redux";
+
 import { selectIsLoggedIn } from "../../redux/auth/slice";
 import { NavLink } from "react-router-dom";
 
 import { logoutThunk } from "../../redux/auth/operations";
 import { AppDispatch } from "../../redux/store";
-import { CheckmarkIcon } from "react-hot-toast";
 
 interface ModalProps {
   closeModal: () => void;

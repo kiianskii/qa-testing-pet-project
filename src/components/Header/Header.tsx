@@ -1,11 +1,14 @@
 import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useMediaQuery } from "react-responsive";
+
 import s from "./Header.module.css";
 import Logo from "../../icons/logo.png";
-import { useDispatch, useSelector } from "react-redux";
+
 import { AppDispatch } from "../../redux/store";
 import { logoutThunk } from "../../redux/auth/operations";
 import { selectIsLoggedIn } from "../../redux/auth/slice";
-import { useMediaQuery } from "react-responsive";
+
 import MenuButton from "../MenuButton/MenuButton";
 import { CheckmarkIcon } from "../../icons/Icon";
 

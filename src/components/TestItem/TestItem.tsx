@@ -1,6 +1,8 @@
 import React from "react";
-import s from "./TestItem.module.css";
 import { useDispatch, useSelector } from "react-redux";
+
+import s from "./TestItem.module.css";
+
 import {
   selectAnswers,
   selectCurrentQuestion,

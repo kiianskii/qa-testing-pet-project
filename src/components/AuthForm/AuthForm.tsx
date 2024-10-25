@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import s from "./AuthForm.module.css";
 import { useDispatch } from "react-redux";
+import toast from "react-hot-toast";
+
+import s from "./AuthForm.module.css";
 import { loginThunk, registerThunk } from "../../redux/auth/operations";
 import { AppDispatch } from "../../redux/store";
-import toast from "react-hot-toast";
 
 const msgOptions = {
   icon: "😞",

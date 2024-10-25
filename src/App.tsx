@@ -1,21 +1,29 @@
-import { Suspense, useEffect } from "react";
-import "./App.css";
+import React, { Suspense, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
-import Layout from "./components/Layout/Layout";
-import MainPage from "./pages/MainPage/MainPage";
+import { Toaster } from "react-hot-toast";
+import { useDispatch, useSelector } from "react-redux";
+
+import "./App.css";
+
 import AuthPage from "./pages/AuthPage/AuthPage";
-import ErrorPage from "./pages/ErrorPage/ErrorPage";
-import TestPage from "./pages/TestPage/TestPage";
-import MaterialsPage from "./pages/MaterialsPage/MaterialsPage";
-import ContactsPage from "./pages/ContactsPage/ContactsPage";
 import { PrivateRoute } from "./routes/PrivateRoute";
 import { RestrictedRoute } from "./routes/RestrictedRoute";
+
 import { refreshThunk, setToken } from "./redux/auth/operations";
-import ResultsPage from "./pages/ResultsPage/ResultsPage";
-import { Toaster } from "react-hot-toast";
 import { AppDispatch } from "./redux/store";
 import { selectRefreshToken, selectSid } from "./redux/auth/slice";
-import { useDispatch, useSelector } from "react-redux";
+
+const Layout = React.lazy(() => import("./components/Layout/Layout"));
+const MainPage = React.lazy(() => import("./pages/MainPage/MainPage"));
+const ErrorPage = React.lazy(() => import("./pages/ErrorPage/ErrorPage"));
+const TestPage = React.lazy(() => import("./pages/TestPage/TestPage"));
+const ContactsPage = React.lazy(
+  () => import("./pages/ContactsPage/ContactsPage")
+);
+const MaterialsPage = React.lazy(
+  () => import("./pages/MaterialsPage/MaterialsPage")
+);
+const ResultsPage = React.lazy(() => import("./pages/ResultsPage/ResultsPage"));
 
 function App() {
   const sid = useSelector(selectSid);

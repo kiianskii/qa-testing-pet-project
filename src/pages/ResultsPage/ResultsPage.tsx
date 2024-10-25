@@ -1,13 +1,15 @@
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
+import s from "./ResultsPage.module.css";
+import cat from "../../img/cat.png";
+
 import {
   selectQuizStatus,
   selectResults,
   selectTotalQuestions,
 } from "../../redux/quiz/selectors";
 import CustomPieChart from "../../components/ResultChart/ResultChart";
-import s from "./ResultsPage.module.css";
-import { useNavigate } from "react-router-dom";
-import cat from "../../img/cat.png";
 
 const ResultsPage = () => {
   const results = useSelector(selectResults);

@@ -1,13 +1,15 @@
-import Header from "../Header/Header";
 import { Outlet } from "react-router-dom";
-import Footer from "../Footer/Footer";
-import s from "./Layout.module.css";
 import { useSelector } from "react-redux";
-import { useToggle } from "../../hooks/useToggle";
 
-import { selectisLoading } from "../../redux/loader/loaderSlice";
+import s from "./Layout.module.css";
+
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 import Loader from "../Loader/Loader";
 import BurgerMenu from "../Modal/BurgerMenu";
+
+import { useToggle } from "../../hooks/useToggle";
+import { selectisLoading } from "../../redux/loader/loaderSlice";
 
 const Layout = () => {
   const isLoading = useSelector(selectisLoading);

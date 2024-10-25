@@ -1,7 +1,12 @@
+import { useDispatch, useSelector } from "react-redux";
+import { useMediaQuery } from "react-responsive";
+import { useNavigate } from "react-router-dom";
+
 import s from "./TestPage.module.css";
 
 import TestItem from "../../components/TestItem/TestItem";
-import { useDispatch, useSelector } from "react-redux";
+import { ArrowIcon, ArrowLeftIcon } from "../../icons/Icon";
+
 import {
   selectAnswers,
   selectCurrentQuestion,
@@ -11,13 +16,10 @@ import {
 } from "../../redux/quiz/selectors";
 import { AppDispatch } from "../../redux/store";
 import { nextQuestion, previousQuestion } from "../../redux/quiz/slice";
-import { useNavigate } from "react-router-dom";
 import {
   fetchTechResults,
   fetchTheoryResults,
 } from "../../redux/quiz/operations";
-import { useMediaQuery } from "react-responsive";
-import { ArrowIcon, ArrowLeftIcon } from "../../icons/Icon";
 
 const TestPage = () => {
   const navigate = useNavigate();
