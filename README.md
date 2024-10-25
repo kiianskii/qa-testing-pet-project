@@ -1,8 +1,8 @@
-# QA Quiz Project
+# Pro Test Project
 
 ## Description
 
-QA Quiz is an interactive web application that allows users to test their knowledge in the field of Quality Assurance (QA). The project aims to help users learn and reinforce the fundamentals of software testing through various questions and answers.
+Pro Test is an interactive web application that allows users to test their knowledge in the field of Quality Assurance (QA). The project aims to help users learn and reinforce the fundamentals of software testing through various questions and answers.
 
 ## Key Features
 
