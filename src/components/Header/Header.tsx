@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useMediaQuery } from "react-responsive";
 
@@ -26,7 +26,9 @@ const Header: React.FC<HeaderProps> = ({ isOpen, closeModal, openModal }) => {
     <>
       <div className={s.header_wrapper}>
         <div className={s.nav_wrapper}>
-          <img src={Logo} alt="Company logo" />
+          <Link to="/">
+            <img src={Logo} alt="Company logo" />
+          </Link>
           {isMobile ? (
             <MenuButton
               isOpen={isOpen}

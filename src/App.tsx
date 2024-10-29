@@ -8,6 +8,7 @@ import "./App.css";
 import AuthPage from "./pages/AuthPage/AuthPage";
 import { PrivateRoute } from "./routes/PrivateRoute";
 import { RestrictedRoute } from "./routes/RestrictedRoute";
+import Loader from "./components/Loader/Loader";
 
 import { refreshThunk, setToken } from "./redux/auth/operations";
 import { AppDispatch } from "./redux/store";
@@ -50,7 +51,7 @@ function App() {
   }, []);
 
   return (
-    <Suspense fallback={<h1>Loading</h1>}>
+    <Suspense fallback={<Loader />}>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route

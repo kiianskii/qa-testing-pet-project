@@ -1,14 +1,12 @@
 import { RootState } from "../redux/store";
 
 export interface User {
-  data: {
-    accessToken: string;
-    refreshToken: string;
-    sid: string;
-    userData: {
-      email: string;
-      id: string;
-    };
+  accessToken: string;
+  refreshToken: string;
+  sid: string;
+  userData: {
+    email: string;
+    id: string;
   };
 }
 
@@ -24,28 +22,26 @@ export interface Data {
   };
 }
 
-export type regCredentials = {
+export interface RegCredentials {
   email: string;
   password: string;
-};
+}
 
-export type logCredentials = {
+export interface LogCredentials {
   email: string;
   password: string;
-};
+}
 
-export type refreshRes = {
-  data: {
-    newAccessToken: string;
-    newRefreshToken: string;
-    newSid: string;
-  };
-};
+export interface RefreshRes {
+  newAccessToken: string;
+  newRefreshToken: string;
+  newSid: string;
+}
 
-export type refreshCredentials = {
+export interface RefreshCredentials {
   sid: string;
   refreshToken: string;
-};
+}
 
 export interface Answer {
   question: string;
@@ -53,19 +49,23 @@ export interface Answer {
   answers: string[];
 }
 
-export interface AnswersResponse {
-  data: Answer[];
-}
+export type AnswersResponse = Answer[];
 
 export interface UserAnswer {
   questionId: number;
   answer: string;
 }
 
+export enum Status {
+  NONE = "",
+  TECH = "tech",
+  THEORY = "theory",
+}
+
 export interface QuizState {
   questions: Answer[];
   currentQuestionIndex: number;
-  status: "" | "tech" | "theory";
+  status: Status;
   error: string | null;
   answers: UserAnswer[];
   results: null | {
@@ -75,12 +75,10 @@ export interface QuizState {
   };
 }
 
-export type quizCredentials = UserAnswer[];
+export type QuizCredentials = UserAnswer[];
 
-export interface resultData {
-  data: {
-    result: string;
-    mainMessage: string;
-    secondaryMessage: string;
-  };
+export interface ResultData {
+  result: string;
+  mainMessage: string;
+  secondaryMessage: string;
 }

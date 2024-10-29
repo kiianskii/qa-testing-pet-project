@@ -2,10 +2,10 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import {
   Data,
-  logCredentials,
-  refreshCredentials,
-  refreshRes,
-  regCredentials,
+  LogCredentials,
+  RefreshCredentials,
+  RefreshRes,
+  RegCredentials,
   User,
 } from "../../helpers/customTypes";
 
@@ -20,9 +20,9 @@ export const clearToken = () => {
 
 export const registerThunk = createAsyncThunk(
   "auth/register",
-  async (credentials: regCredentials, thunkApi) => {
+  async (credentials: RegCredentials, thunkApi) => {
     try {
-      const { data } = (await axios.post("auth/register", credentials)) as Data;
+      const { data } = await axios.post<Data>("auth/register", credentials);
       return data;
     } catch (error) {
       if (axios.isAxiosError(error) && error.message) {
@@ -35,9 +35,9 @@ export const registerThunk = createAsyncThunk(
 
 export const loginThunk = createAsyncThunk(
   "auth/login",
-  async (credentials: logCredentials, thunkApi) => {
+  async (credentials: LogCredentials, thunkApi) => {
     try {
-      const { data } = (await axios.post("auth/login", credentials)) as User;
+      const { data } = await axios.post<User>("auth/login", credentials);
       setToken(data.accessToken);
       return data;
     } catch (error) {
@@ -66,9 +66,9 @@ export const logoutThunk = createAsyncThunk(
 
 export const refreshThunk = createAsyncThunk(
   "auth/refresh",
-  async (credentials: refreshCredentials, thunkApi) => {
+  async (credentials: RefreshCredentials, thunkApi) => {
     try {
-      const { data } = (await axios.post(
+      const { data } = await axios.post<RefreshRes>(
         "auth/refresh",
         { sid: credentials.sid },
         {
@@ -76,7 +76,7 @@ export const refreshThunk = createAsyncThunk(
             Authorization: `Bearer ${credentials.refreshToken}`,
           },
         }
-      )) as refreshRes;
+      );
       setToken(data.newAccessToken);
       return data;
     } catch (error) {

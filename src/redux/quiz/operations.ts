@@ -1,8 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import {
   AnswersResponse,
-  quizCredentials,
-  resultData,
+  QuizCredentials,
+  ResultData,
 } from "../../helpers/customTypes";
 import axios from "axios";
 
@@ -10,7 +10,7 @@ export const fetchTechQuestions = createAsyncThunk(
   "quiz/fetchTechQuestions",
   async (_, thunkApi) => {
     try {
-      const response = (await axios.get("/qa-test/tech")) as AnswersResponse;
+      const response = await axios.get<AnswersResponse>("/qa-test/tech");
       return response.data;
     } catch (error) {
       if (axios.isAxiosError(error) && error.message) {
@@ -25,7 +25,7 @@ export const fetchTheoryQuestions = createAsyncThunk(
   "quiz/fetchTheoryQuestions",
   async (_, thunkApi) => {
     try {
-      const response = (await axios.get("/qa-test/theory")) as AnswersResponse;
+      const response = await axios.get<AnswersResponse>("/qa-test/theory");
       return response.data;
     } catch (error) {
       if (axios.isAxiosError(error) && error.message) {
@@ -38,13 +38,13 @@ export const fetchTheoryQuestions = createAsyncThunk(
 
 export const fetchTheoryResults = createAsyncThunk(
   "quiz/fetchTheoryResults",
-  async (credentials: quizCredentials, thunkApi) => {
+  async (credentials: QuizCredentials, thunkApi) => {
     try {
       const reqCredentials = { answers: credentials };
-      const { data } = (await axios.post(
+      const { data } = await axios.post<ResultData>(
         "/qa-test/theory-results",
         reqCredentials
-      )) as resultData;
+      );
       return data;
     } catch (error) {
       if (axios.isAxiosError(error) && error.message) {
@@ -57,13 +57,13 @@ export const fetchTheoryResults = createAsyncThunk(
 
 export const fetchTechResults = createAsyncThunk(
   "quiz/fetchTechResults",
-  async (credentials: quizCredentials, thunkApi) => {
+  async (credentials: QuizCredentials, thunkApi) => {
     try {
       const reqCredentials = { answers: credentials };
-      const { data } = (await axios.post(
+      const { data } = await axios.post<ResultData>(
         "/qa-test/tech-results",
         reqCredentials
-      )) as resultData;
+      );
       return data;
     } catch (error) {
       if (axios.isAxiosError(error) && error.message) {

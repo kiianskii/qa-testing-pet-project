@@ -10,6 +10,7 @@ import {
   selectTotalQuestions,
 } from "../../redux/quiz/selectors";
 import CustomPieChart from "../../components/ResultChart/ResultChart";
+import { Status } from "../../helpers/customTypes";
 
 const ResultsPage = () => {
   const results = useSelector(selectResults);
@@ -37,7 +38,7 @@ const ResultsPage = () => {
       <div className={s.title_wrapper}>
         <h2 className={s.title}>Results</h2>
         <p className={s.title_desc}>
-          [ Testing {status === "theory" ? "theory_" : "tech_"} ]
+          [ Testing {status === Status.THEORY ? Status.THEORY : Status.TECH} ]
         </p>
       </div>
       <div>

@@ -20,6 +20,7 @@ import {
   fetchTechResults,
   fetchTheoryResults,
 } from "../../redux/quiz/operations";
+import { Status } from "../../helpers/customTypes";
 
 const TestPage = () => {
   const navigate = useNavigate();
@@ -40,9 +41,9 @@ const TestPage = () => {
   };
 
   const handleFinish = () => {
-    if (status === "tech") {
+    if (status === Status.TECH) {
       dispatch(fetchTechResults(answers));
-    } else if (status === "theory") {
+    } else if (status === Status.THEORY) {
       dispatch(fetchTheoryResults(answers));
     }
     navigate("/results");
@@ -52,7 +53,8 @@ const TestPage = () => {
     <section className={s.test_page}>
       <div className={s.title_wrapper}>
         <h2 className={s.title}>
-          [ Testing <br /> {status === "theory" ? "theory_" : "tech_"} ]
+          [ Testing <br />{" "}
+          {status === Status.THEORY ? Status.THEORY : Status.TECH} ]
         </h2>
         <button
           className={s.finish_btn}

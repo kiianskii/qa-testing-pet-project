@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { QuizState } from "../../helpers/customTypes";
+import { QuizState, Status } from "../../helpers/customTypes";
 import {
   fetchTechQuestions,
   fetchTechResults,
@@ -12,7 +12,7 @@ import { logoutThunk } from "../auth/operations";
 const initialState: QuizState = {
   questions: [],
   currentQuestionIndex: 0,
-  status: "",
+  status: Status.NONE,
   error: null,
   answers: [],
   results: null,
@@ -55,7 +55,7 @@ const quizSlice = createSlice({
         state.answers = [];
         state.currentQuestionIndex = 0;
         state.results = null;
-        state.status = "tech";
+        state.status = Status.TECH;
         state.questions = action.payload;
       })
       .addCase(fetchTechQuestions.rejected, (state, action) => {
@@ -65,7 +65,7 @@ const quizSlice = createSlice({
         state.answers = [];
         state.currentQuestionIndex = 0;
         state.results = null;
-        state.status = "theory";
+        state.status = Status.THEORY;
         state.questions = action.payload;
       })
       .addCase(fetchTheoryQuestions.rejected, (state, action) => {
