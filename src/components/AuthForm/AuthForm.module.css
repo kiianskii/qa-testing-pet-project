@@ -27,12 +27,22 @@
     letter-spacing: 0.2px;
   }
 
+  .validation {
+    font-size: 10px;
+    color: red;
+  }
+
   @media screen and (min-width: 768px) {
     gap: 24px;
 
     p {
       font-size: 14px;
       letter-spacing: 0.28px;
+    }
+
+    .validation {
+      font-size: 10px;
+      color: red;
     }
   }
 }
@@ -83,4 +93,9 @@
   border: 1px solid #ced2d1;
   background: #fff;
   color: #000;
+}
+
+.validation {
+  font-size: 10px;
+  color: red;
 }

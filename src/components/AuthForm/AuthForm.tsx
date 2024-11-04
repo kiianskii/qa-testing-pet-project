@@ -23,8 +23,23 @@ const AuthForm: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [valid, setValid] = useState(true);
+
+  const isValidEmail = (email: string): boolean => {
+    const emailRegexp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailRegexp.test(email);
+  };
+
+  const handleEmailBlur = () => {
+    setValid(isValidEmail(email));
+  };
 
   const handleRegister = async () => {
+    if (!isValidEmail(email)) {
+      setValid(false);
+      return;
+    }
+    setValid(true);
     try {
       const resultAction = await dispatch(registerThunk({ email, password }));
       if (!registerThunk.fulfilled.match(resultAction)) {
@@ -37,6 +52,11 @@ const AuthForm: React.FC = () => {
   };
 
   const handleLogin = async () => {
+    if (!isValidEmail(email)) {
+      setValid(false);
+      return;
+    }
+    setValid(true);
     try {
       const resultAction = await dispatch(loginThunk({ email, password }));
       if (!loginThunk.fulfilled.match(resultAction)) {
@@ -58,9 +78,13 @@ const AuthForm: React.FC = () => {
             type="email"
             placeholder="Email"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+            onBlur={handleEmailBlur}
             required
           />
+          {valid ? "" : <p className={s.validation}>Email is not valid</p>}
         </div>
         <div className={s.input_wrapper}>
           <input
